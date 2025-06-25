@@ -4,31 +4,24 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/Klus3kk/animal)](https://goreportcard.com/report/github.com/Klus3kk/animal)
 [![Release](https://img.shields.io/github/v/release/Klus3kk/animal)](https://github.com/Klus3kk/animal/releases)
 
-Animal is a programming language that uses animal sounds and characteristics as its core syntax elements. It brings a playful yet powerful approach to programming with a complete feature set for both beginners and experienced developers.
+Animal is a programming language that uses animal sounds and characteristics as its core syntax elements. It brings a playful way to programming with a complete feature set of basic commands (and also new ones!).
 
 ## Quick Start
 
 ```bash
-# Install Animal
 go install github.com/Klus3kk/animal/cmd/animal@latest
-
-# Run Animal REPL
 animal
-
-# Execute Animal script
 animal path/to/script.anml
 ```
 
 Try this simple Animal program:
 
 ```animal
-# Hello World in Animal
 roar "Hello from the animal kingdom!"
 
-# Variables and arithmetic
 age -> 5
 weight -> 10
-total -> age meow weight  # Addition using 'meow'
+total -> age meow weight  
 
 roar "Total:", total
 ```
@@ -64,33 +57,32 @@ Complete documentation is available at [animal.readthedocs.io](https://animal.re
 ### Control Flow
 
 ```animal
-# Conditionals
+-- Conditionals
 if sniff x == 10 {
     roar "x equals 10"
 } else {
     roar "x does not equal 10"
 }
 
-# Loops
+-- Loops
 leap i from 0 to 5 {
     roar i
 }
 
-# Functions
+-- Functions
 howl calculate_area(length, width) {
-    return length moo width  # Multiplication
+    return length moo width  -- Multiplication
 }
 
 area -> calculate_area(5, 10)
 roar "Area:", area
 ```
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 
 - Go 1.18 or higher
-- Git
 
 ### From Source
 
