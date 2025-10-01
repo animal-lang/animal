@@ -1,1 +1,87 @@
-test
+=== Commands ===
+
+animal [file.anml] [args...]    Run a file
+animal --repl                   Start interactive REPL mode
+animal --help                   Show this help message
+animal --version                Show version information
+animal --debug                  Enable debug mode
+animal --time                   Measure execution time
+
+=== List of Nodes ===
+
+ShelterNode
+MimicNode
+FetchJSONNode
+FetchCSVNode
+SniffFileNode
+DropAppendNode
+FetchNode
+DropNode
+ListAccessNode
+ListNode
+NestDefNode
+DotCallNode
+StatementsNode
+RoarNode
+GrowlNode
+VarAccessNode
+VarAssignNode
+ListenNode
+FunctionDefNode
+FunctionCallNode
+NumberNode
+BinOpNode
+UnaryOpNode
+StringNode
+BoolNode
+PounceNode
+WhimperNode
+HissNode
+LeapNode
+BestiaryNode
+TrySymbolicNode
+ThrowSymbolicNode 
+
+== List of Built-in Functions ===
+
+meow   >>>			2 meow 2 = 4
+woof   >>>		    2 woof 2 = 0
+moo    >>>			2 moo 2 = 4
+drone  >>>		    2 drone 2 = 1
+squeak >>>	        3 squeak 2 = 1
+soar   >>>		    3 soar 2 = 6
+
+
+roar   >>> 			roar "test" => "test"
+
+-> 	   >>>		    is used as a sign of assignment, example:  x -> 5
+
+howl   >>> 			howl factorial(n) {...}
+
+sniffback >>>		sniffback returns the last evaluated expression in a function
+    
+growl/wag >>> growl n <= 1 {
+				1 sniffback
+			  } wag {
+				n moo factorial(n woof 1) sniffback
+			  }
+
+
+=== Try-catch blocks ===
+
+*[
+  roar "Inside first try block"
+]*
+
+*(
+  roar "Caught classic error:" _error
+)*
+
+*{ 
+	"first symbolic error" 
+}*
+
+%bestiary
+%time  >>>		execution time measured
+%debug >>> 		debug mode enabled
+!shelter 

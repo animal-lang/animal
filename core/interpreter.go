@@ -525,7 +525,7 @@ func (i *Interpreter) visitDotCallNode(node DotCallNode, context *Context) *RTRe
 		return res.success(nil)
 	}
 
-	// 🐚 NEST METHODS & FIELDS
+	// NEST METHODS & FIELDS
 	if inst, ok := targetVal.(map[string]interface{}); ok {
 		// METHOD CALL: d.speak()
 		if methods, ok := inst["__methods__"].(map[string]*FunctionDefNode); ok {
