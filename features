@@ -294,3 +294,17 @@ trail(list): get all prefixes of list (growing sublists from start)
 pelt(value, times): repeat string representation of value n times
 howlpack(list, item): find all indexes of item in list
 nest(value, depth): wrap value in nested lists to specified depth
+
+[math]
+max(x, y): returns the maximum of two numbers
+min(x, y): returns the minimum of two numbers
+abs(number): returns the absolute value of the number
+
+[numbers]
+purr(number, base): convert number to string in specified base (2-36)
+scent(string, base): parse string as number in specified base (2-36)
+
+[random]
+pounce(min, max): generate random integer between min and max (inclusive)
+stalk(list): pick random element from list
+tumble(list): shuffle list randomly
