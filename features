@@ -60,12 +60,19 @@ howl   >>> 			howl factorial(n) {...}
 
 sniffback >>>		sniffback returns the last evaluated expression in a function
     
-growl/wag >>> growl n <= 1 {
+growl/sniff/wag (if, elif, else) >>> growl n <= 1 {
 				1 sniffback
+			  } sniff n == 2 {
+				roar "That doesn't seem right..."
 			  } wag {
 				n moo factorial(n woof 1) sniffback
 			  }
 
+pounce >>> 	works like "while"
+
+pounce operation != "exit" {
+
+}
 
 === Try-catch blocks ===
 
