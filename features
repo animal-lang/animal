@@ -279,5 +279,18 @@ roar x   :: Expect 99
 y -> 123   :: Expect TYPE MISMATCH ERROR
 
 
+=== Standard Library ===
 
-
+[list]
+paw(x, min, max): clamp a number
+nuzzle(a, b): merge two lists or two strings
+burrow(n): create list of n nil elements
+perch(list): return all permutations of a list
+lick(list): flatten nested list into single list
+howl(list, item): find index of item inside list
+chase(x, n): repeat element x n times into a list
+trace(list): cumulative sum of numbers in list
+trail(list): get all prefixes of list (growing sublists from start)
+pelt(value, times): repeat string representation of value n times
+howlpack(list, item): find all indexes of item in list
+nest(value, depth): wrap value in nested lists to specified depth
