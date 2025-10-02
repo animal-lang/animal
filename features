@@ -132,6 +132,34 @@ fetch_json >>> assigns a json file to a variable
 j -> fetch_json("examples/testing_files/data.json")
 roar j[0].name  :: Alice
 
+whimper >>> break
+
+:: POUNCE LOOP with WHIMPER (break)
+x2 -> 5
+pounce x2 > 0 {
+    growl x2 == 3 {
+        whimper
+    }
+    x2 -> x2 woof 1
+}
+
+hiss >> continue
+
+:: POUNCE LOOP with HISS (continue skip)
+x3 -> 5
+y3 -> 0
+pounce x3 > 0 {
+    x3 -> x3 woof 1
+    growl x3 == 3 {
+        hiss
+    }
+    y3 -> y3 meow 1
+}
+
+roar "y3 after pounce with hiss:", y3  :: Should print 4
+
+
+
 === File Input/Output ===
 
 :: Read/write file
@@ -145,6 +173,17 @@ drop_append("sample.txt", "Line A\n")
 drop_append("sample.txt", "Line B\n")
 content -> fetch("sample.txt")
 roar content
+
+
+sniff_file >>> checks if the file exists
+
+:: Checking if the file exists
+growl sniff_file("sample.txt") {
+    roar "Exists!"
+} wag {
+    roar "Missing!"
+}
+
 
 
 === Try-catch blocks ===
@@ -168,6 +207,12 @@ nums -> [1, 2, 3]
 nums.sniff(4)
 nums.snarl()
 roar nums
+
+:: LIST HOWL (find index)
+l -> [10, 20, 30]
+idx -> l.howl(20)
+
+roar "Index of 20:", idx  :: Should print 1
 
 === Headliners ===
 
@@ -200,4 +245,39 @@ roar x
 roar y
 
 internal_secret(5) :: ERROR! not visible
+
+=== SHEBANG ===
+
+#!/usr/bin/env animal
+roar "Hello from shebang script!"
+roar __args__
+
+
+=== Types ===
+:: Variable assignment without type (dynamic)
+a -> 123
+roar a   :: Expect 123
+
+b -> "hello"
+roar b   :: Expect hello
+
+:: Variable assignment with type
+x: int -> 10
+roar x   :: Expect 10
+
+y: string -> "world"
+roar y   :: Expect world
+
+z: bool -> true
+roar z   :: Expect true
+
+:: Reassign with correct type
+x -> 99
+roar x   :: Expect 99
+
+:: Reassign with WRONG type (should throw runtime error)
+y -> 123   :: Expect TYPE MISMATCH ERROR
+
+
+
 
