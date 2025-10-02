@@ -308,3 +308,12 @@ scent(string, base): parse string as number in specified base (2-36)
 pounce(min, max): generate random integer between min and max (inclusive)
 stalk(list): pick random element from list
 tumble(list): shuffle list randomly
+
+=== TODO ===
+[string] standard library 
+support for custom libraries 
+[gui] library 
+[sounds] library
+better security 
+vscode support 
+regex support 
