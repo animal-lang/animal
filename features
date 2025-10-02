@@ -227,19 +227,23 @@ tumble(list)      Shuffle list
 TODO
 ----
 [string] library
-support for custom libraries
-[gui] library
-[sounds] library
-better security
-vscode support
-regex support
-[2dgraphics] library?
-benchmarks
-[algorithms] library
-IDE support
-better documentation
-quotient types
-live debugging
 [dscience] library
 [tests] library
+[gui] library
+[sounds] library
+[2dgraphics] library?
+[algorithms] library
+support for custom libraries
+
+better security
+regex support
 UTF-8 charts
+quotient types
+
+vscode support
+IDE support
+live debugging
+
+benchmarks
+better documentation
+
