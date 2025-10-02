@@ -24,26 +24,6 @@ func AnimalPaw(args []interface{}) interface{} {
 	return val
 }
 
-// nuzzle(a, b): merge two lists or two strings
-func AnimalNuzzle(args []interface{}) interface{} {
-	if len(args) != 2 {
-		return fmt.Errorf("nuzzle expects 2 arguments")
-	}
-
-	switch a := args[0].(type) {
-	case []interface{}:
-		if b, ok := args[1].([]interface{}); ok {
-			return append(a, b...)
-		}
-	case string:
-		if b, ok := args[1].(string); ok {
-			return a + b
-		}
-	}
-
-	return fmt.Errorf("nuzzle expects (list,list) or (string,string)")
-}
-
 // burrow(n): create list of n nil elements
 func AnimalBurrow(args []interface{}) interface{} {
 	if len(args) != 1 {
@@ -208,24 +188,6 @@ func AnimalTrail(args []interface{}) interface{} {
 		result = append(result, sublist)
 	}
 	return result
-}
-
-func AnimalPelt(args []interface{}) interface{} {
-	if len(args) != 2 {
-		return fmt.Errorf("pelt expects 2 arguments (value, times)")
-	}
-	n := args[0]
-	times, ok := args[1].(float64)
-	if !ok {
-		return fmt.Errorf("pelt expects (value, times)")
-	}
-
-	str := fmt.Sprintf("%v", n)
-	repeated := ""
-	for i := 0; i < int(times); i++ {
-		repeated += str
-	}
-	return repeated
 }
 
 func AnimalHowlpack(args []interface{}) interface{} {

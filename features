@@ -199,7 +199,7 @@ STANDARD LIBRARY
 ----------------
 [list]
 paw(x, min, max)       Clamp number
-nuzzle(a, b)           Merge lists/strings
+
 burrow(n)              List of n nil
 perch(list)            All permutations
 lick(list)             Flatten nested list
@@ -223,10 +223,16 @@ pounce(min,max)   Random int
 stalk(list)       Random element
 tumble(list)      Shuffle list
 
+[string]
+squirrel(string, delimiter)     Split string by delimiter into a list
+nuzzle(a, b)                    Merge lists/strings
+pelt(value, times):             Repeat string value times times
+rat(string):                    Uppercase string
+mole(string):                   Lowercase string
+snipe(string, symbol = " "):    Trim symbol from both ends of string
 
 TODO
 ----
-[string] library
 [dscience] library
 [tests] library
 [gui] library

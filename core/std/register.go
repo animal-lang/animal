@@ -17,7 +17,6 @@ func RegisterStandardLibrary(symbolTable *core.SymbolTable) {
 	symbolTable.Set("tumble", AnimalTumble)
 	// List
 	symbolTable.Set("paw", AnimalPaw)
-	symbolTable.Set("nuzzle", AnimalNuzzle)
 	symbolTable.Set("burrow", AnimalBurrow)
 	symbolTable.Set("perch", AnimalPerch)
 	symbolTable.Set("lick", AnimalLick)
@@ -25,8 +24,33 @@ func RegisterStandardLibrary(symbolTable *core.SymbolTable) {
 	symbolTable.Set("chase", AnimalChase)
 	symbolTable.Set("trace", AnimalTrace)
 	symbolTable.Set("trail", AnimalTrail)
-	symbolTable.Set("pelt", AnimalPelt)
 	symbolTable.Set("howlpack", AnimalHowlpack)
 	symbolTable.Set("nest", AnimalNest)
+	// String
+	symbolTable.Set("pelt", AnimalPelt)
+	symbolTable.Set("nuzzle", AnimalNuzzle)
+	symbolTable.Set("squirrel", AnimalSquirrel)
+	symbolTable.Set("parrot", AnimalParrot)
+	symbolTable.Set("rat", AnimalRat)
+	symbolTable.Set("mole", AnimalMole)
+	symbolTable.Set("snipe", AnimalSnipe)
+
+	// Algorithms
+
+
+	// 2D Graphics
+
+	
+	// Sounds
+
+
+	// GUI
+
+
+	// DScience
+
+
+
+	// Tests
 
 }
