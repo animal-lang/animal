@@ -230,6 +230,11 @@ pelt(value, times):             Repeat string value times times
 rat(string):                    Uppercase string
 mole(string):                   Lowercase string
 snipe(string, symbol = " "):    Trim symbol from both ends of string
+ferret(string, start, length):  Substring from start index with given length
+badger(string, substring):      Check if substring is in string
+
+[algorithms] 
+
 
 TODO
 ----
@@ -238,7 +243,7 @@ TODO
 [gui] library
 [sounds] library
 [2dgraphics] library?
-[algorithms] library
+
 support for custom libraries
 
 better security

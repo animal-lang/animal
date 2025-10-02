@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// pelt(value, times): repeat string value times times
+// pelt(value, times): repeat string value times 
 func AnimalPelt(args []interface{}) interface{} {
 	if len(args) != 2 {
 		return fmt.Errorf("pelt expects 2 arguments (value, times)")
@@ -167,4 +167,63 @@ func AnimalSnipe(args []interface{}) interface{} {
 		return ""
 	}
 	return str[start : end+1]
+}
+
+// ferret(string, start, length): substring from start index with given length
+func AnimalFerret(args []interface{}) interface{} {
+	if len(args) != 3 {
+		return fmt.Errorf("ferret expects 3 arguments (string, start, length)")
+	}
+	str, ok := args[0].(string)
+	if !ok {
+		return fmt.Errorf("ferret expects first argument as string")
+	}
+	start, ok := args[1].(float64)
+	if !ok {
+		return fmt.Errorf("ferret expects second argument as number")
+	}
+	length, ok := args[2].(float64)
+	if !ok {
+		return fmt.Errorf("ferret expects third argument as number")
+	}
+	if start < 0 || int(start) >= len(str) || length < 0 {
+		return ""
+	}
+	end := int(start) + int(length)
+	if end > len(str) {
+		end = len(str)
+	}
+	return str[int(start):end]
+}
+
+// badger(string, substring): check if substring is in string
+func AnimalBadger(args []interface{}) interface{} {
+	if len(args) != 2 {
+		return fmt.Errorf("badger expects 2 arguments (string, substring)")
+	}
+	str, ok := args[0].(string)
+	if !ok {
+		return fmt.Errorf("badger expects first argument as string")
+	}
+	substr, ok := args[1].(string)
+	if !ok {
+		return fmt.Errorf("badger expects second argument as string")
+	}
+
+	return contains(str, substr)
+}
+
+func contains(str, substr string) bool {
+	strLen := len(str)
+	substrLen := len(substr)
+
+	if substrLen == 0 {
+		return true
+	}
+	for i := 0; i <= strLen-substrLen; i++ {
+		if str[i:i+substrLen] == substr {
+			return true
+		}
+	}
+	return false
 }

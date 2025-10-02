@@ -8,13 +8,16 @@ func RegisterStandardLibrary(symbolTable *core.SymbolTable) {
 	symbolTable.Set("max", AnimalMax)
 	symbolTable.Set("min", AnimalMin)
 	symbolTable.Set("abs", AnimalAbs)
+
 	// Numbers
 	symbolTable.Set("purr", AnimalPurr)
 	symbolTable.Set("scent", AnimalScent)
+
 	// Random
 	symbolTable.Set("pounce", AnimalPounce)
 	symbolTable.Set("stalk", AnimalStalk)
 	symbolTable.Set("tumble", AnimalTumble)
+
 	// List
 	symbolTable.Set("paw", AnimalPaw)
 	symbolTable.Set("burrow", AnimalBurrow)
@@ -26,6 +29,7 @@ func RegisterStandardLibrary(symbolTable *core.SymbolTable) {
 	symbolTable.Set("trail", AnimalTrail)
 	symbolTable.Set("howlpack", AnimalHowlpack)
 	symbolTable.Set("nest", AnimalNest)
+
 	// String
 	symbolTable.Set("pelt", AnimalPelt)
 	symbolTable.Set("nuzzle", AnimalNuzzle)
@@ -34,9 +38,11 @@ func RegisterStandardLibrary(symbolTable *core.SymbolTable) {
 	symbolTable.Set("rat", AnimalRat)
 	symbolTable.Set("mole", AnimalMole)
 	symbolTable.Set("snipe", AnimalSnipe)
+	symbolTable.Set("ferret", AnimalFerret)
+	symbolTable.Set("badger", AnimalBadger)
 
 	// Algorithms
-
+	symbolTable.Set("cluesort", AnimalClueSort)
 
 	// 2D Graphics
 
