@@ -233,8 +233,6 @@ snipe(string, symbol = " "):    Trim symbol from both ends of string
 ferret(string, start, length):  Substring from start index with given length
 badger(string, substring):      Check if substring is in string
 
-[algorithms] 
-
 
 TODO
 ----
