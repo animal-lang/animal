@@ -88,6 +88,30 @@ leap i from 1 to 15 {
     }
 }
 
+mimic ... { } >>> works similar to "switch"
+
+x -> "ca"
+
+mimic x {
+  "dog" -> roar "woof"
+  "cat" -> roar "meow"
+  _ -> roar "???"
+}
+
+nest ... { } >>> works like simple classes
+
+nest Cat {
+    name
+    howl meo() {
+        roar this.name, "says Meow!"
+    }
+}
+
+c -> Cat()
+c.name -> "Whiskers"
+c.meo()
+
+
 :: -> commants
 
 :: Here's a command!
@@ -137,7 +161,43 @@ roar content
 	"first symbolic error" 
 }*
 
-%bestiary
+
+=== Lists ===
+
+nums -> [1, 2, 3]
+nums.sniff(4)
+nums.snarl()
+roar nums
+
+=== Headliners ===
+
 %time  >>>		execution time measured
 %debug >>> 		debug mode enabled
-!shelter 
+
+!shelter  >>> exporting functions, libraries etc
+
+!shelter -> ["add", "multiply"]
+
+howl add(a, b) {
+    a meow b sniffback
+}
+
+howl multiply(a, b) {
+    a moo b sniffback
+}
+
+howl internal_secret(x) {   :: hidden, not exported
+    x meow 1000 sniffback
+}
+
+%bestiary >>> works for modules
+
+%bestiary 'examples/math_utils.anml'
+
+x -> add(2, 3)
+y -> multiply(x, 2)
+roar x
+roar y
+
+internal_secret(5) :: ERROR! not visible
+
