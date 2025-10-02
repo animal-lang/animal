@@ -1,5 +1,9 @@
-=== Commands ===
+========================================
+           ANIMAL LANGUAGE GUIDE
+========================================
 
+COMMANDS
+--------
 animal [file.anml] [args...]    Run a file
 animal --repl                   Start interactive REPL mode
 animal --help                   Show this help message
@@ -7,8 +11,9 @@ animal --version                Show version information
 animal --debug                  Enable debug mode
 animal --time                   Measure execution time
 
-=== List of Nodes ===
 
+LIST OF NODES
+-------------
 ShelterNode
 MimicNode
 FetchJSONNode
@@ -40,66 +45,80 @@ HissNode
 LeapNode
 BestiaryNode
 TrySymbolicNode
-ThrowSymbolicNode 
-
-== List of Built-in Functions ===
-
-meow   >>>			2 meow 2 = 4
-woof   >>>		    2 woof 2 = 0
-moo    >>>			2 moo 2 = 4
-drone  >>>		    2 drone 2 = 1
-squeak >>>	        3 squeak 2 = 1
-soar   >>>		    3 soar 2 = 6
+ThrowSymbolicNode
 
 
-roar   >>> 			roar "test" => "test"
+BUILT-IN FUNCTIONS
+------------------
+meow   ->  2 meow 2   = 4
+woof   ->  2 woof 2   = 0
+moo    ->  2 moo 2    = 4
+drone  ->  2 drone 2  = 1
+squeak ->  3 squeak 2 = 1
+soar   ->  3 soar 2   = 6
+purr   ->  string concatenation
+roar   ->  roar "test" => "test"
 
--> 	   >>>		    is used as a sign of assignment, example:  x -> 5
+Assignment:
+x -> 5
 
-howl   >>> 			howl factorial(n) {...}
+Typed Variables:
+count: int -> 3
+name: string -> "Buddy"
+is_active: bool -> true
 
-sniffback >>>		sniffback returns the last evaluated expression in a function
-    
-growl/sniff/wag (if, elif, else) >>> growl n <= 1 {
-				1 sniffback
-			  } sniff n == 2 {
-				roar "That doesn't seem right..."
-			  } wag {
-				n moo factorial(n woof 1) sniffback
-			  }
+Available types: int, float, bool, string
 
-pounce >>> 	works like "while"
 
-pounce operation != "exit" {
+OPERATORS
+---------
+Comparison:
+==   Equal
+!=   Not equal
+>    Greater than
+<    Less than
+>=   Greater or equal
+<=   Less than or equal
 
+Logical:
+and   Logical AND
+or    Logical OR
+not   Logical NOT
+
+Precedence:
+Parentheses -> Exponentiation -> Unary +/- -> Add/Sub
+Assignment -> Logical operators -> Comparison operators
+
+
+CONTROL FLOW
+------------
+Functions:
+howl factorial(n) {
+    ...
+}
+sniffback  -> returns last evaluated expression
+
+Conditionals:
+growl n <= 1 {
+    1 sniffback
+} sniff n == 2 {
+    roar "That doesn't seem right..."
+} wag {
+    n moo factorial(n woof 1) sniffback
 }
 
-leap ... from ... to ... >>> works like "for"
+Loops:
+pounce condition { ... }    -> while loop
+leap i from 1 to 15 { ... } -> for loop
 
-leap i from 1 to 15 {
-    growl i squeak 4 == 0 {
-        roar "FizzBuzz"
-    } sniff i squeak 3 == 0 {
-        roar "Fizz"
-    } sniff i squeak 5 == 0 {
-        roar "Buzz"
-    } wag {
-        roar i
-    }
-}
-
-mimic ... { } >>> works similar to "switch"
-
-x -> "ca"
-
+Switch:
 mimic x {
   "dog" -> roar "woof"
   "cat" -> roar "meow"
   _ -> roar "???"
 }
 
-nest ... { } >>> works like simple classes
-
+Classes:
 nest Cat {
     name
     howl meo() {
@@ -107,223 +126,120 @@ nest Cat {
     }
 }
 
-c -> Cat()
-c.name -> "Whiskers"
-c.meo()
+Break / Continue:
+whimper  -> break
+hiss     -> continue
 
 
-:: -> commants
+FILE INPUT/OUTPUT
+-----------------
+drop("file.txt", "Hello")   -> write
+fetch("file.txt")           -> read
+drop_append("file.txt", "...") -> append
 
-:: Here's a command!
-
-listen (input) >>> 
-
-roar "Enter first number: "
-num1 -> listen
-
-
-fetch_csv >>> assigns a csv file to a variable
-
-c -> fetch_csv("examples/testing_files/data.csv")
-roar c[1].age   :: 30
-
-fetch_json >>> assigns a json file to a variable
-
-j -> fetch_json("examples/testing_files/data.json")
-roar j[0].name  :: Alice
-
-whimper >>> break
-
-:: POUNCE LOOP with WHIMPER (break)
-x2 -> 5
-pounce x2 > 0 {
-    growl x2 == 3 {
-        whimper
-    }
-    x2 -> x2 woof 1
-}
-
-hiss >> continue
-
-:: POUNCE LOOP with HISS (continue skip)
-x3 -> 5
-y3 -> 0
-pounce x3 > 0 {
-    x3 -> x3 woof 1
-    growl x3 == 3 {
-        hiss
-    }
-    y3 -> y3 meow 1
-}
-
-roar "y3 after pounce with hiss:", y3  :: Should print 4
+sniff_file("file.txt") -> check if file exists
 
 
-
-=== File Input/Output ===
-
-:: Read/write file
-drop("sample.txt", "Hello from Animal!")
-content -> fetch("sample.txt")
-roar content
-
-:: Appending to the file
-drop("sample.txt", "Start\n")
-drop_append("sample.txt", "Line A\n")
-drop_append("sample.txt", "Line B\n")
-content -> fetch("sample.txt")
-roar content
-
-
-sniff_file >>> checks if the file exists
-
-:: Checking if the file exists
-growl sniff_file("sample.txt") {
-    roar "Exists!"
-} wag {
-    roar "Missing!"
-}
-
-
-
-=== Try-catch blocks ===
-
+TRY / CATCH
+-----------
 *[
-  roar "Inside first try block"
+  roar "Inside try block"
 ]*
-
 *(
-  roar "Caught classic error:" _error
+  roar "Caught error:" _error
 )*
-
-*{ 
-	"first symbolic error" 
+*{
+  "symbolic error"
 }*
 
 
-=== Lists ===
+LISTS
+-----
+Empty:    l -> []
+Numbers:  nums -> [1,2,3]
+Mixed:    m -> ["a", 42, true]
 
-nums -> [1, 2, 3]
-nums.sniff(4)
-nums.snarl()
-roar nums
+Access:   fruits[0]
+Append:   nums.sniff(4)
+Reverse:  nums.snarl()
+Shuffle:  nums.prowl()
 
-:: LIST HOWL (find index)
-l -> [10, 20, 30]
-idx -> l.howl(20)
+Find index: idx -> l.howl(20)
+Length:     len -> l.wag()
 
-roar "Index of 20:", idx  :: Should print 1
 
-=== Headliners ===
+HEADLINERS
+----------
+%time    -> execution time
+%debug   -> debug mode
+!shelter -> export functions
+%bestiary -> import other Animal files
 
-%time  >>>		execution time measured
-%debug >>> 		debug mode enabled
 
-!shelter  >>> exporting functions, libraries etc
-
-!shelter -> ["add", "multiply"]
-
-howl add(a, b) {
-    a meow b sniffback
-}
-
-howl multiply(a, b) {
-    a moo b sniffback
-}
-
-howl internal_secret(x) {   :: hidden, not exported
-    x meow 1000 sniffback
-}
-
-%bestiary >>> works for modules
-
-%bestiary 'examples/math_utils.anml'
-
-x -> add(2, 3)
-y -> multiply(x, 2)
-roar x
-roar y
-
-internal_secret(5) :: ERROR! not visible
-
-=== SHEBANG ===
-
+SHEBANG
+-------
 #!/usr/bin/env animal
-roar "Hello from shebang script!"
-roar __args__
 
 
-=== Types ===
-:: Variable assignment without type (dynamic)
+TYPES
+-----
+Dynamic assignment:
 a -> 123
-roar a   :: Expect 123
-
 b -> "hello"
-roar b   :: Expect hello
 
-:: Variable assignment with type
+Typed assignment:
 x: int -> 10
-roar x   :: Expect 10
-
 y: string -> "world"
-roar y   :: Expect world
-
 z: bool -> true
-roar z   :: Expect true
 
-:: Reassign with correct type
-x -> 99
-roar x   :: Expect 99
-
-:: Reassign with WRONG type (should throw runtime error)
-y -> 123   :: Expect TYPE MISMATCH ERROR
+Type mismatch throws runtime error.
 
 
-=== Standard Library ===
-
+STANDARD LIBRARY
+----------------
 [list]
-paw(x, min, max): clamp a number
-nuzzle(a, b): merge two lists or two strings
-burrow(n): create list of n nil elements
-perch(list): return all permutations of a list
-lick(list): flatten nested list into single list
-howl(list, item): find index of item inside list
-chase(x, n): repeat element x n times into a list
-trace(list): cumulative sum of numbers in list
-trail(list): get all prefixes of list (growing sublists from start)
-pelt(value, times): repeat string representation of value n times
-howlpack(list, item): find all indexes of item in list
-nest(value, depth): wrap value in nested lists to specified depth
+paw(x, min, max)       Clamp number
+nuzzle(a, b)           Merge lists/strings
+burrow(n)              List of n nil
+perch(list)            All permutations
+lick(list)             Flatten nested list
+howl(list, item)       Find index
+chase(x, n)            Repeat element
+trace(list)            Cumulative sum
+trail(list)            Prefixes of list
+pelt(value, times)     Repeat as string
+howlpack(list, item)   Find all indexes
+nest(value, depth)     Wrap value in nested lists
 
 [math]
-max(x, y): returns the maximum of two numbers
-min(x, y): returns the minimum of two numbers
-abs(number): returns the absolute value of the number
+max(x,y), min(x,y), abs(num)
 
 [numbers]
-purr(number, base): convert number to string in specified base (2-36)
-scent(string, base): parse string as number in specified base (2-36)
+purr(num, base)   Convert to string
+scent(str, base)  Parse string as num
 
 [random]
-pounce(min, max): generate random integer between min and max (inclusive)
-stalk(list): pick random element from list
-tumble(list): shuffle list randomly
+pounce(min,max)   Random int
+stalk(list)       Random element
+tumble(list)      Shuffle list
 
-=== TODO ===
-[string] standard library 
-support for custom libraries 
-[gui] library 
+
+TODO
+----
+[string] library
+support for custom libraries
+[gui] library
 [sounds] library
-better security 
-vscode support 
-regex support 
-[2dgraphics] library???
-benchmarks for each language diagram
-[algorithms] library 
-IDE support 
-better documentation 
+better security
+vscode support
+regex support
+[2dgraphics] library?
+benchmarks
+[algorithms] library
+IDE support
+better documentation
 quotient types
-live debbuging
+live debugging
 [dscience] library
 [tests] library
 UTF-8 charts
