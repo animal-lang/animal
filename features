@@ -237,8 +237,11 @@ badger(string, substring):      Check if substring is in string
 TODO
 ----
 [dscience] library
+* Add graphs, advanced math functions, data manipulation, statistics
 [tests] library
+* Tests.
 [gui] library
+* Window creation (for Windows/Linux), components like buttons, lists, ready-to-use guis
 [sounds] library
 [2dgraphics] library?
 
