@@ -241,9 +241,12 @@ TODO
 [tests] library
 * Tests.
 [gui] library
-* Window creation (for Windows/Linux), components like buttons, lists, ready-to-use guis
+* Window creation (for Windows/Linux), components like buttons, lists, ready-to-use guis, cross-platform, handling user events, text boxes, progress bar, menu, 
+* Layout management
 [sounds] library
+* bit sounds, mp3 reading, ready sounds
 [2dgraphics] library?
+* drawing shapes (pixels, lines, rectangles), handling sprites with transformations, key inputs, 
 
 support for custom libraries
 
