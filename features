@@ -1,0 +1,264 @@
+=========================================
+          ANIMAL LANGUAGE GUIDE
+=========================================
+
+COMMANDS
+--------
+animal [file.anml] [args...]    Run a file
+animal --repl                   Start interactive REPL mode
+animal --help                   Show this help message
+animal --version                Show version information
+animal --debug                  Enable debug mode
+animal --time                   Measure execution time
+
+
+LIST OF NODES
+-------------
+ShelterNode
+MimicNode
+FetchJSONNode
+FetchCSVNode
+SniffFileNode
+DropAppendNode
+FetchNode
+DropNode
+ListAccessNode
+ListNode
+NestDefNode
+DotCallNode
+StatementsNode
+RoarNode
+GrowlNode
+VarAccessNode
+VarAssignNode
+ListenNode
+FunctionDefNode
+FunctionCallNode
+NumberNode
+BinOpNode
+UnaryOpNode
+StringNode
+BoolNode
+PounceNode
+WhimperNode
+HissNode
+LeapNode
+BestiaryNode
+TrySymbolicNode
+ThrowSymbolicNode
+
+
+BUILT-IN FUNCTIONS
+------------------
+meow   ->  2 meow 2   = 4
+woof   ->  2 woof 2   = 0
+moo    ->  2 moo 2    = 4
+drone  ->  2 drone 2  = 1
+squeak ->  3 squeak 2 = 1
+soar   ->  3 soar 2   = 6
+purr   ->  string concatenation
+roar   ->  roar "test" => "test"
+
+Assignment:
+x -> 5
+
+Typed Variables:
+count: int -> 3
+name: string -> "Buddy"
+is_active: bool -> true
+
+Available types: int, float, bool, string
+
+
+OPERATORS
+---------
+Comparison:
+==   Equal
+!=   Not equal
+>    Greater than
+<    Less than
+>=   Greater or equal
+<=   Less than or equal
+
+Logical:
+and   Logical AND
+or    Logical OR
+not   Logical NOT
+
+Precedence:
+Parentheses -> Exponentiation -> Unary +/- -> Add/Sub
+Assignment -> Logical operators -> Comparison operators
+
+
+CONTROL FLOW
+------------
+Functions:
+howl factorial(n) {
+    ...
+}
+sniffback  -> returns last evaluated expression
+
+Conditionals:
+growl n <= 1 {
+    1 sniffback
+} sniff n == 2 {
+    roar "That doesn't seem right..."
+} wag {
+    n moo factorial(n woof 1) sniffback
+}
+
+Loops:
+pounce condition { ... }    -> while loop
+leap i from 1 to 15 { ... } -> for loop
+
+Switch:
+mimic x {
+  "dog" -> roar "woof"
+  "cat" -> roar "meow"
+  _ -> roar "???"
+}
+
+Classes:
+nest Cat {
+    name
+    howl meo() {
+        roar this.name, "says Meow!"
+    }
+}
+
+Break / Continue:
+whimper  -> break
+hiss     -> continue
+
+
+FILE INPUT/OUTPUT
+-----------------
+drop("file.txt", "Hello")   -> write
+fetch("file.txt")           -> read
+drop_append("file.txt", "...") -> append
+
+sniff_file("file.txt") -> check if file exists
+
+
+TRY / CATCH
+-----------
+*[
+  roar "Inside try block"
+]*
+*(
+  roar "Caught error:" _error
+)*
+*{
+  "symbolic error"
+}*
+
+
+LISTS
+-----
+Empty:    l -> []
+Numbers:  nums -> [1,2,3]
+Mixed:    m -> ["a", 42, true]
+
+Access:   fruits[0]
+Append:   nums.sniff(4)
+Reverse:  nums.snarl()
+Shuffle:  nums.prowl()
+
+Find index: idx -> l.howl(20)
+Length:     len -> l.wag()
+
+
+HEADLINERS
+----------
+%time    -> execution time
+%debug   -> debug mode
+!shelter -> export functions
+%bestiary -> import other Animal files
+
+
+SHEBANG
+-------
+#!/usr/bin/env animal
+
+
+TYPES
+-----
+Dynamic assignment:
+a -> 123
+b -> "hello"
+
+Typed assignment:
+x: int -> 10
+y: string -> "world"
+z: bool -> true
+
+Type mismatch throws runtime error.
+
+
+STANDARD LIBRARY
+----------------
+[list]
+paw(x, min, max)       Clamp number
+
+burrow(n)              List of n nil
+perch(list)            All permutations
+lick(list)             Flatten nested list
+howl(list, item)       Find index
+chase(x, n)            Repeat element
+trace(list)            Cumulative sum
+trail(list)            Prefixes of list
+pelt(value, times)     Repeat as string
+howlpack(list, item)   Find all indexes
+nest(value, depth)     Wrap value in nested lists
+
+[math]
+max(x,y), min(x,y), abs(num)
+
+[numbers]
+purr(num, base)   Convert to string
+scent(str, base)  Parse string as num
+
+[random]
+pounce(min,max)   Random int
+stalk(list)       Random element
+tumble(list)      Shuffle list
+
+[string]
+squirrel(string, delimiter)     Split string by delimiter into a list
+nuzzle(a, b)                    Merge lists/strings
+pelt(value, times):             Repeat string value times times
+rat(string):                    Uppercase string
+mole(string):                   Lowercase string
+snipe(string, symbol = " "):    Trim symbol from both ends of string
+ferret(string, start, length):  Substring from start index with given length
+badger(string, substring):      Check if substring is in string
+
+
+TODO
+----
+[dscience] library
+* Add graphs, advanced math functions, data manipulation, statistics
+[tests] library
+* Tests.
+[gui] library
+* Window creation (for Windows/Linux), components like buttons, lists, ready-to-use guis, cross-platform, handling user events, text boxes, progress bar, menu, 
+* Layout management
+[sounds] library
+* bit sounds, mp3 reading, ready sounds
+[2dgraphics] library?
+* drawing shapes (pixels, lines, rectangles), handling sprites with transformations, key inputs, 
+
+support for custom libraries
+
+better security (so better showing where's the mistake)
+regex support 
+UTF-8 charts 
+quotient types
+
+vscode support
+IDE support
+live debugging
+
+benchmarks (C++ vs Python vs animal)
+better documentation (so it wont be chaotic)
+

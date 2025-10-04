@@ -1,16 +1,40 @@
 package core
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+
+var (
+	OutputBuffer  strings.Builder
+	CaptureOutput = false
+)
+
+func Print(args ...interface{}) {
+	text := fmt.Sprint(args...)
+	if CaptureOutput {
+		OutputBuffer.WriteString(text + "\n")
+	} else {
+		fmt.Println(args...)
+	}
+}
+
+func GetCapturedOutput() string {
+	return OutputBuffer.String()
+}
+
+func ClearCapturedOutput() {
+	OutputBuffer.Reset()
+}
 
 func CustomRun(text string, fn string, context *Context) (interface{}, error) {
-	// Initialize the lexer and generate tokens
 	lexer := NewLexer(fn, text)
 	tokens, err := lexer.make_tokens()
 	if err != nil {
 		return nil, err
 	}
 
-	// Parse the tokens to generate the AST
 	parser := NewParser(tokens)
 	parseResult := parser.parse()
 
@@ -18,7 +42,6 @@ func CustomRun(text string, fn string, context *Context) (interface{}, error) {
 		return nil, fmt.Errorf(parseResult.Error)
 	}
 
-	// Create an interpreter and use the provided context
 	interpreter := Interpreter{}
 	result := interpreter.visit(parseResult.Node, context)
 
