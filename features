@@ -11,7 +11,6 @@ animal --version                Show version information
 animal --debug                  Enable debug mode
 animal --time                   Measure execution time
 
-
 LIST OF NODES
 -------------
 ShelterNode
