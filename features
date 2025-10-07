@@ -235,6 +235,7 @@ badger(string, substring):      Check if substring is in string
 
 TODO
 ----
+repair commants online
 [tests] library
 * Tests.
 [sounds] library
