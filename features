@@ -236,6 +236,14 @@ badger(string, substring):      Check if substring is in string
 TODO
 ----
 repair commants online
+
+if sniff x == 10 {
+    roar "x equals 10"
+} else {
+    roar "x does not equal 10"
+}
+Error: index out of bounds
+
 [tests] library
 * Tests.
 [sounds] library
